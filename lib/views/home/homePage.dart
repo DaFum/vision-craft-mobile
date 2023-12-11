@@ -41,6 +41,7 @@ class _HomePageState extends State<HomePage> {
         unselectedLabelStyle: GoogleFonts.lato(),
         selectedLabelStyle: GoogleFonts.lato(),
         unselectedItemColor: AppTheme.mainColor,
+        selectedItemColor: AppTheme.purpleColor,
         backgroundColor: Colors.white,
         currentIndex: selectedIndex,
         onTap: changePage,
@@ -48,8 +49,9 @@ class _HomePageState extends State<HomePage> {
           BottomNavigationBarItem(
             icon: SvgPicture.asset(
               IconsData.create,
-              colorFilter: const ColorFilter.mode(
-                AppTheme.mainColor,
+              height: 22,
+              colorFilter: ColorFilter.mode(
+                selectedIndex == 0 ? AppTheme.purpleColor : AppTheme.mainColor,
                 BlendMode.srcIn,
               ),
             ),
@@ -58,8 +60,9 @@ class _HomePageState extends State<HomePage> {
           BottomNavigationBarItem(
             icon: SvgPicture.asset(
               IconsData.explore,
-              colorFilter: const ColorFilter.mode(
-                AppTheme.mainColor,
+              height: 22,
+              colorFilter: ColorFilter.mode(
+                selectedIndex == 1 ? AppTheme.purpleColor : AppTheme.mainColor,
                 BlendMode.srcIn,
               ),
             ),
@@ -68,8 +71,9 @@ class _HomePageState extends State<HomePage> {
           BottomNavigationBarItem(
             icon: SvgPicture.asset(
               IconsData.cog,
-              colorFilter: const ColorFilter.mode(
-                AppTheme.mainColor,
+              height: 22,
+              colorFilter: ColorFilter.mode(
+                selectedIndex == 2 ? AppTheme.purpleColor : AppTheme.mainColor,
                 BlendMode.srcIn,
               ),
             ),
