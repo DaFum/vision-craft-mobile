@@ -18,16 +18,29 @@ class _HomePageState extends State<HomePage> {
         backgroundColor: AppTheme.purpleColor,
         surfaceTintColor: Colors.transparent,
         automaticallyImplyLeading: false,
-        actions: [
-          IconButton(
-            onPressed: () {},
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        items: [
+          BottomNavigationBarItem(
             icon: SvgPicture.asset(
-              IconsData.cog,
+              IconsData.create,
               colorFilter: const ColorFilter.mode(
-                Colors.white,
+                AppTheme.mainColor,
                 BlendMode.srcIn,
               ),
             ),
+            label: "Create",
+          ),
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: "Explore"),
+          BottomNavigationBarItem(
+            icon: SvgPicture.asset(
+              IconsData.cog,
+              colorFilter: const ColorFilter.mode(
+                AppTheme.mainColor,
+                BlendMode.srcIn,
+              ),
+            ),
+            label: "Settings",
           ),
         ],
       ),
