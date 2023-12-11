@@ -8,6 +8,7 @@ class ExplorePage extends StatefulWidget {
 }
 
 class _ExplorePageState extends State<ExplorePage> {
+  List<String> exploreImageUrls = [];
   @override
   Widget build(BuildContext context) {
     return const Placeholder();

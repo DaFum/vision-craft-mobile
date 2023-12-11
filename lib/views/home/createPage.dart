@@ -8,6 +8,7 @@ class CreatePage extends StatefulWidget {
 }
 
 class _CreatePageState extends State<CreatePage> {
+  List<String> visionCraftModels = [];
   @override
   Widget build(BuildContext context) {
     return const Placeholder();
