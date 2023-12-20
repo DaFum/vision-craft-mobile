@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:vision_craft_mobile/theme/appTheme.dart';
 
+import '../../utils/iconsData.dart';
 import '../home/homePage.dart';
 
 class SplashPage extends StatefulWidget {
@@ -21,7 +22,7 @@ class _SplashPageState extends State<SplashPage> {
   @override
   void initState() {
     super.initState();
-    runSplash();
+    // runSplash();
   }
 
   @override
@@ -42,35 +43,10 @@ class _SplashPageState extends State<SplashPage> {
           children: [
             Align(
               alignment: Alignment.center,
-              child: RichText(
-                text: TextSpan(
-                  style: GoogleFonts.lato(
-                    fontSize: 16,
-                    color: Colors.white,
-                  ),
-                  children: <TextSpan>[
-                    const TextSpan(
-                      text: 'Turn Your ',
-                    ),
-                    TextSpan(
-                      text: 'Imaginations',
-                      style: GoogleFonts.lato(
-                        fontSize: 16,
-                        color: Colors.purpleAccent,
-                      ),
-                    ),
-                    const TextSpan(
-                      text: ' Into Instant ',
-                    ),
-                    TextSpan(
-                      text: 'Images',
-                      style: GoogleFonts.lato(
-                        fontSize: 16,
-                        color: Colors.purpleAccent,
-                      ),
-                    ),
-                  ],
-                ),
+              
+              child: Image.asset(
+                IconsData.appLogo,
+                height: 150,
               ),
             ),
             Padding(

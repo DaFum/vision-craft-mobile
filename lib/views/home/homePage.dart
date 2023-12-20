@@ -35,18 +35,13 @@ class _HomePageState extends State<HomePage> {
         surfaceTintColor: Colors.transparent,
         automaticallyImplyLeading: false,
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        selectedFontSize: 13,
-        unselectedFontSize: 13,
-        unselectedLabelStyle: GoogleFonts.lato(),
-        selectedLabelStyle: GoogleFonts.lato(),
-        unselectedItemColor: AppTheme.mainColor,
-        selectedItemColor: AppTheme.purpleColor,
+      body: pages[selectedIndex],
+      bottomNavigationBar: NavigationBar(
         backgroundColor: Colors.white,
-        currentIndex: selectedIndex,
-        onTap: changePage,
-        items: [
-          BottomNavigationBarItem(
+        selectedIndex: selectedIndex,
+        onDestinationSelected: changePage,
+        destinations: [
+          NavigationDestination(
             icon: SvgPicture.asset(
               IconsData.create,
               height: 22,
@@ -57,7 +52,7 @@ class _HomePageState extends State<HomePage> {
             ),
             label: "Create",
           ),
-          BottomNavigationBarItem(
+          NavigationDestination(
             icon: SvgPicture.asset(
               IconsData.explore,
               height: 22,
@@ -66,9 +61,9 @@ class _HomePageState extends State<HomePage> {
                 BlendMode.srcIn,
               ),
             ),
-            label: "Explore",
+            label: "Discover",
           ),
-          BottomNavigationBarItem(
+          NavigationDestination(
             icon: SvgPicture.asset(
               IconsData.cog,
               height: 22,
@@ -81,18 +76,7 @@ class _HomePageState extends State<HomePage> {
           ),
         ],
       ),
-      body: Container(
-        decoration: const BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.bottomCenter,
-            end: Alignment.topCenter,
-            colors: [
-              AppTheme.mainColor,
-              AppTheme.purpleColor,
-            ],
-          ),
-        ),
-      ),
+     
     );
   }
 }
