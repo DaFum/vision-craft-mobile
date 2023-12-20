@@ -64,7 +64,7 @@ class _HomePageState extends State<HomePage> {
               IconsData.create,
               height: 22,
               colorFilter: ColorFilter.mode(
-                selectedIndex == 0 ? AppTheme.purpleColor : AppTheme.mainColor,
+                selectedIndex == 0 ? AppTheme.purpleColor : Colors.white60,
                 BlendMode.srcIn,
               ),
             ),
@@ -75,7 +75,7 @@ class _HomePageState extends State<HomePage> {
               IconsData.explore,
               height: 22,
               colorFilter: ColorFilter.mode(
-                selectedIndex == 1 ? AppTheme.purpleColor : AppTheme.mainColor,
+                selectedIndex == 1 ? AppTheme.purpleColor : Colors.white60,
                 BlendMode.srcIn,
               ),
             ),
@@ -86,7 +86,7 @@ class _HomePageState extends State<HomePage> {
               IconsData.cog,
               height: 22,
               colorFilter: ColorFilter.mode(
-                selectedIndex == 2 ? AppTheme.purpleColor : AppTheme.mainColor,
+                selectedIndex == 2 ? AppTheme.purpleColor : Colors.white60,
                 BlendMode.srcIn,
               ),
             ),
