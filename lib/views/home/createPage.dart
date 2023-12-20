@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../theme/appTheme.dart';
+
 class CreatePage extends StatefulWidget {
   const CreatePage({super.key});
 
@@ -11,6 +13,20 @@ class _CreatePageState extends State<CreatePage> {
   List<String> visionCraftModels = [];
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+     return Scaffold(
+      backgroundColor: Colors.transparent,
+      body: Container(
+        decoration: const BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.bottomCenter,
+            end: Alignment.topCenter,
+            colors: [
+              AppTheme.mainColor,
+              AppTheme.purpleColor,
+            ],
+          ),
+        ),
+      ),
+    );
   }
 }

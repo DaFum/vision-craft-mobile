@@ -27,6 +27,16 @@ class _HomePageState extends State<HomePage> {
     });
   }
 
+  String titles() {
+    if (selectedIndex == 0) {
+      return "Vision Craft";
+    } else if (selectedIndex == 1) {
+      return "Discover";
+    } else {
+      return "Settings";
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -34,6 +44,13 @@ class _HomePageState extends State<HomePage> {
         backgroundColor: AppTheme.purpleColor,
         surfaceTintColor: Colors.transparent,
         automaticallyImplyLeading: false,
+        title: Text(
+          titles(),
+          style: GoogleFonts.lato(
+            color: Colors.white,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
       ),
       body: pages[selectedIndex],
       bottomNavigationBar: NavigationBar(
@@ -76,7 +93,6 @@ class _HomePageState extends State<HomePage> {
           ),
         ],
       ),
-     
     );
   }
 }

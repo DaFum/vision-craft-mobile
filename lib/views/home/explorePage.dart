@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:vision_craft_mobile/utils/sample_image_urls.dart';
+
+import '../../theme/appTheme.dart';
 
 class ExplorePage extends StatefulWidget {
   const ExplorePage({super.key});
@@ -8,9 +11,40 @@ class ExplorePage extends StatefulWidget {
 }
 
 class _ExplorePageState extends State<ExplorePage> {
-  List<String> exploreImageUrls = [];
+  List<String> exploreImageUrls = SampleImageUrls.images;
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Scaffold(
+      backgroundColor: Colors.transparent,
+      body: Container(
+        decoration: const BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.bottomCenter,
+            end: Alignment.topCenter,
+            colors: [
+              AppTheme.mainColor,
+              AppTheme.purpleColor,
+            ],
+          ),
+        ),
+        child: GridView.builder(
+          itemCount: exploreImageUrls.length,
+          physics: const BouncingScrollPhysics(),
+          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 2),
+          itemBuilder: (context, index) {
+            return Card(
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(10),
+                child: Image.network(
+                  exploreImageUrls[index],
+                  fit: BoxFit.cover,
+                ),
+              ),
+            );
+          },
+        ),
+      ),
+    );
   }
 }
