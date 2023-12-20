@@ -5,4 +5,6 @@ class AppTheme {
   static const purpleColor = Color.fromARGB(255, 109, 40, 217);
   static const pinkColor = Color.fromARGB(255, 155, 27, 124);
   static const greenColor = Color.fromARGB(255, 41, 199, 99);
+  static const navigationBarColor = Color.fromARGB(255, 109, 40, 217);
+  static const indicatorColor = Colors.white;
 }

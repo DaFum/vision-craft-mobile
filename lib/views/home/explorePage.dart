@@ -34,6 +34,7 @@ class _ExplorePageState extends State<ExplorePage> {
               crossAxisCount: 2),
           itemBuilder: (context, index) {
             return Card(
+              color: AppTheme.mainColor,
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(10),
                 child: Image.network(

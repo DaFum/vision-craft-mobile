@@ -54,9 +54,10 @@ class _HomePageState extends State<HomePage> {
       ),
       body: pages[selectedIndex],
       bottomNavigationBar: NavigationBar(
-        backgroundColor: Colors.white,
+        backgroundColor: AppTheme.navigationBarColor,
         selectedIndex: selectedIndex,
         onDestinationSelected: changePage,
+        indicatorColor: AppTheme.indicatorColor,
         destinations: [
           NavigationDestination(
             icon: SvgPicture.asset(
