@@ -53,46 +53,55 @@ class _HomePageState extends State<HomePage> {
         ),
       ),
       body: pages[selectedIndex],
-      bottomNavigationBar: NavigationBar(
-        backgroundColor: AppTheme.navigationBarColor,
-        selectedIndex: selectedIndex,
-        onDestinationSelected: changePage,
-        indicatorColor: AppTheme.indicatorColor,
-        destinations: [
-          NavigationDestination(
-            icon: SvgPicture.asset(
-              IconsData.create,
-              height: 22,
-              colorFilter: ColorFilter.mode(
-                selectedIndex == 0 ? AppTheme.purpleColor : Colors.white60,
-                BlendMode.srcIn,
+     
+      bottomNavigationBar: SizedBox(
+        height: 65,
+        child: BottomNavigationBar(
+          backgroundColor: AppTheme.navigationBarColor,
+          selectedItemColor: Colors.white,
+          unselectedItemColor: AppTheme.indicatorColor,
+          selectedLabelStyle: GoogleFonts.lato(),
+          unselectedLabelStyle: GoogleFonts.lato(),
+          unselectedFontSize: 14,
+          selectedFontSize: 14,
+          currentIndex: selectedIndex,
+          onTap: changePage,
+          items: [
+            BottomNavigationBarItem(
+              icon: SvgPicture.asset(
+                IconsData.create,
+                height: 22,
+                colorFilter: ColorFilter.mode(
+                  selectedIndex == 0 ? Colors.white : AppTheme.indicatorColor,
+                  BlendMode.srcIn,
+                ),
               ),
+              label: "Create",
             ),
-            label: "Create",
-          ),
-          NavigationDestination(
-            icon: SvgPicture.asset(
-              IconsData.explore,
-              height: 22,
-              colorFilter: ColorFilter.mode(
-                selectedIndex == 1 ? AppTheme.purpleColor : Colors.white60,
-                BlendMode.srcIn,
+            BottomNavigationBarItem(
+              icon: SvgPicture.asset(
+                IconsData.explore,
+                height: 22,
+                colorFilter: ColorFilter.mode(
+                  selectedIndex == 1 ? Colors.white : AppTheme.indicatorColor,
+                  BlendMode.srcIn,
+                ),
               ),
+              label: "Discover",
             ),
-            label: "Discover",
-          ),
-          NavigationDestination(
-            icon: SvgPicture.asset(
-              IconsData.cog,
-              height: 22,
-              colorFilter: ColorFilter.mode(
-                selectedIndex == 2 ? AppTheme.purpleColor : Colors.white60,
-                BlendMode.srcIn,
+            BottomNavigationBarItem(
+              icon: SvgPicture.asset(
+                IconsData.cog,
+                height: 22,
+                colorFilter: ColorFilter.mode(
+                  selectedIndex == 2 ? Colors.white : AppTheme.indicatorColor,
+                  BlendMode.srcIn,
+                ),
               ),
+              label: "Settings",
             ),
-            label: "Settings",
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
