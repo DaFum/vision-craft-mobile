@@ -13,7 +13,6 @@ dependencies:
   flutter_vision_craft: ^1.0.1
   get: ^4.6.6
   google_fonts: ^6.1.0
-  settings_ui: ^2.0.2
   webview_flutter: ^4.4.2
 
 dev_dependencies:
