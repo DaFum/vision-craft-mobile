@@ -3,6 +3,8 @@ import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:vision_craft_mobile/theme/appTheme.dart';
+import 'package:vision_craft_mobile/utils/iconsData.dart';
+import 'package:vision_craft_mobile/views/home/settings_view.dart';
 import 'package:vision_craft_mobile/views/home/webview.dart';
 
 import '../../utils/constants.dart';
@@ -19,6 +21,17 @@ class _SettingsPageState extends State<SettingsPage> {
     Get.to(
       () => WebsiteView(urlString: urlString, title: title),
       transition: Transition.cupertino,
+    );
+  }
+
+  SvgPicture svgImage(String icon) {
+    return SvgPicture.asset(
+      icon,
+      height: 22,
+      colorFilter: const ColorFilter.mode(
+        Colors.white,
+        BlendMode.srcIn,
+      ),
     );
   }
 
@@ -50,20 +63,17 @@ class _SettingsPageState extends State<SettingsPage> {
                 children: [
                   const SizedBox(height: 15),
 
-                  GestureDetector(
+                  InkWell(
                     onTap: () {
                       openWebview(
                           title: "Support", urlString: AppConstants.support);
                     },
-                    child: SizedBox(
+                    child: Container(
                       height: 50,
                       child: Row(
                         children: [
                           const SizedBox(width: 10),
-                          const Icon(
-                            Icons.star_outline,
-                            color: Colors.white,
-                          ),
+                          svgImage(IconsData.support),
                           const SizedBox(width: 10),
                           Text(
                             "Support",
@@ -82,19 +92,16 @@ class _SettingsPageState extends State<SettingsPage> {
                   ),
                   const SizedBox(height: 10),
                   //share with firends
-                  GestureDetector(
+                  InkWell(
                     onTap: () {
                       openWebview(urlString: AppConstants.help, title: "Help");
                     },
-                    child: SizedBox(
+                    child: Container(
                       height: 50,
                       child: Row(
                         children: [
                           const SizedBox(width: 10),
-                          const Icon(
-                            Icons.share_outlined,
-                            color: Colors.white,
-                          ),
+                          svgImage(IconsData.help),
                           const SizedBox(width: 10),
                           Text(
                             "Get Help",
@@ -114,20 +121,17 @@ class _SettingsPageState extends State<SettingsPage> {
                   ),
                   const SizedBox(height: 10),
                   //feedback
-                  GestureDetector(
+                  InkWell(
                     onTap: () {
                       openWebview(
                           urlString: AppConstants.about, title: "About Us");
                     },
-                    child: SizedBox(
+                    child: Container(
                       height: 50,
                       child: Row(
                         children: [
                           const SizedBox(width: 10),
-                          const Icon(
-                            Icons.share_outlined,
-                            color: Colors.white,
-                          ),
+                          svgImage(IconsData.about),
                           const SizedBox(width: 10),
                           Text(
                             "About Us",
@@ -146,24 +150,19 @@ class _SettingsPageState extends State<SettingsPage> {
                   ),
                   const SizedBox(height: 10),
                   //Privacy policy
-                  GestureDetector(
+                  InkWell(
                     onTap: () {
-                      openWebview(
-                          urlString: AppConstants.offcialSite,
-                          title: "Official Site");
+                      // open url
                     },
-                    child: SizedBox(
+                    child: Container(
                       height: 50,
                       child: Row(
                         children: [
                           const SizedBox(width: 10),
-                          const Icon(
-                            Icons.privacy_tip_rounded,
-                            color: Colors.white,
-                          ),
+                          svgImage(IconsData.bug),
                           const SizedBox(width: 10),
                           Text(
-                            "Official Site",
+                            "Report Bug",
                             style: GoogleFonts.josefinSans(color: Colors.white),
                           ),
                         ],
@@ -180,23 +179,20 @@ class _SettingsPageState extends State<SettingsPage> {
                   ),
                   const SizedBox(height: 10),
                   //Privacy policy
-                  GestureDetector(
+                  InkWell(
                     onTap: () {
-                      openWebview(
-                          urlString: AppConstants.owner, title: "Owners");
+                      Get.to(() => const SettingsViewPage(),
+                          transition: Transition.cupertino);
                     },
-                    child: SizedBox(
+                    child: Container(
                       height: 50,
                       child: Row(
                         children: [
                           const SizedBox(width: 10),
-                          const Icon(
-                            Icons.privacy_tip_rounded,
-                            color: Colors.white,
-                          ),
+                          svgImage(IconsData.owners),
                           const SizedBox(width: 10),
                           Text(
-                            "Owners",
+                            "Developers",
                             style: GoogleFonts.josefinSans(color: Colors.white),
                           ),
                         ],
@@ -210,7 +206,7 @@ class _SettingsPageState extends State<SettingsPage> {
             const SizedBox(height: 30),
             //version text.
             Text(
-              "Version 1.0.0",
+              "Version 1.0.0 @VisionCraft",
               style: GoogleFonts.josefinSans(color: Colors.white54),
             ),
           ],

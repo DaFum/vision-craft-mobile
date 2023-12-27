@@ -3,5 +3,5 @@ class AppConstants {
   static const help = "";
   static const about = "";
   static const owner = "";
-  static const offcialSite = "";
+  static const reportBug = "";
 }
