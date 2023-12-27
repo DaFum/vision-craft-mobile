@@ -1,7 +1,6 @@
 class AppConstants {
-  static const support = "";
-  static const help = "";
-  static const about = "";
-  static const owner = "";
-  static const reportBug = "";
+  static const support = "https://visioncraft.vercel.app/";
+  static const help = "https://visioncraft.vercel.app/";
+  static const about = "https://visioncraft.vercel.app/";
+  static const reportBug = "https://t.me/metimol";
 }

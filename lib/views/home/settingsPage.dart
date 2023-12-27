@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'package:vision_craft_mobile/theme/appTheme.dart';
 import 'package:vision_craft_mobile/utils/iconsData.dart';
 import 'package:vision_craft_mobile/views/home/settings_view.dart';
@@ -22,6 +23,13 @@ class _SettingsPageState extends State<SettingsPage> {
       () => WebsiteView(urlString: urlString, title: title),
       transition: Transition.cupertino,
     );
+  }
+
+  openBrowser(String url) async {
+    var urllaunchable = await canLaunch(url);
+    if (urllaunchable) {
+      await launch(url);
+    } else {}
   }
 
   SvgPicture svgImage(String icon) {
@@ -149,6 +157,7 @@ class _SettingsPageState extends State<SettingsPage> {
                   InkWell(
                     onTap: () {
                       // open url
+                      openBrowser(AppConstants.reportBug);
                     },
                     child: SizedBox(
                       height: 50,
