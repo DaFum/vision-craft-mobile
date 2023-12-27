@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:vision_craft_mobile/utils/sample_image_urls.dart';
+import 'package:vision_craft_mobile/views/home/view_image.dart';
 
 import '../../theme/appTheme.dart';
 
@@ -33,13 +35,20 @@ class _ExplorePageState extends State<ExplorePage> {
           gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: 2),
           itemBuilder: (context, index) {
-            return Card(
-              color: AppTheme.mainColor,
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(10),
-                child: Image.network(
-                  exploreImageUrls[index],
-                  fit: BoxFit.cover,
+            return InkWell(
+              onTap: () => Get.to(
+                  () => ViewImagePage(
+                        src: exploreImageUrls[index],
+                      ),
+                  transition: Transition.downToUp),
+              child: Card(
+                color: AppTheme.mainColor,
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(10),
+                  child: Image.network(
+                    exploreImageUrls[index],
+                    fit: BoxFit.cover,
+                  ),
                 ),
               ),
             );

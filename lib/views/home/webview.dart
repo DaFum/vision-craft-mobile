@@ -1,9 +1,13 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:vision_craft_mobile/theme/appTheme.dart';
 import 'package:webview_flutter/webview_flutter.dart';
+
+import '../../utils/iconsData.dart';
 
 class WebsiteView extends StatelessWidget {
   final String urlString;
@@ -12,6 +16,16 @@ class WebsiteView extends StatelessWidget {
   WebsiteView({super.key, required this.urlString, required this.title});
 
   RxBool isDone = false.obs;
+  SvgPicture svgImage(String icon) {
+    return SvgPicture.asset(
+      icon,
+      height: 22,
+      colorFilter: const ColorFilter.mode(
+        Colors.white,
+        BlendMode.srcIn,
+      ),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -33,23 +47,20 @@ class WebsiteView extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        backgroundColor: Colors.white,
+        backgroundColor: AppTheme.mainColor,
         scrolledUnderElevation: 0,
         title: Text(
           title,
-          style: const TextStyle(
-            fontWeight: FontWeight.bold,
-            fontFamily: "SF",
-            fontSize: 20,
+          style: GoogleFonts.lato(
+            color: Colors.white,
+            fontSize: 18,
           ),
         ),
         leading: IconButton(
           onPressed: () {
             Get.back();
           },
-          icon: Icon(
-            Platform.isAndroid ? Icons.arrow_back : Icons.arrow_back_ios,
-          ),
+          icon: svgImage(IconsData.back),
         ),
       ),
       body: Obx(
