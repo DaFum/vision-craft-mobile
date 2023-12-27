@@ -45,10 +45,7 @@ class _CreatePageState extends State<CreatePage> {
                   ),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10),
-                    border: Border.all(
-                      color: AppTheme.greenColor,
-                      width: 2,
-                    ),
+                    border: Border.all(color: AppTheme.greenColor),
                   ),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,

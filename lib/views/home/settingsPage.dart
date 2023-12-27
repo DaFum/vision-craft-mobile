@@ -56,13 +56,13 @@ class _SettingsPageState extends State<SettingsPage> {
               width: double.infinity,
               margin: const EdgeInsets.all(8),
               decoration: BoxDecoration(
-                color: const Color.fromARGB(90, 35, 35, 65),
+                color: AppTheme.cardColor,
                 borderRadius: BorderRadius.circular(10),
+                border: Border.all(color: AppTheme.purpleColor),
               ),
               child: Column(
                 children: [
                   const SizedBox(height: 15),
-
                   InkWell(
                     onTap: () {
                       openWebview(
@@ -110,7 +110,6 @@ class _SettingsPageState extends State<SettingsPage> {
                       ),
                     ),
                   ),
-
                   const Padding(
                     padding: EdgeInsets.only(left: 40, right: 10),
                     child: Divider(
