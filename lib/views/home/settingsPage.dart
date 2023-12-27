@@ -68,7 +68,7 @@ class _SettingsPageState extends State<SettingsPage> {
                       openWebview(
                           title: "Support", urlString: AppConstants.support);
                     },
-                    child: Container(
+                    child: SizedBox(
                       height: 50,
                       child: Row(
                         children: [
@@ -91,12 +91,11 @@ class _SettingsPageState extends State<SettingsPage> {
                     ),
                   ),
                   const SizedBox(height: 10),
-                  //share with firends
                   InkWell(
                     onTap: () {
                       openWebview(urlString: AppConstants.help, title: "Help");
                     },
-                    child: Container(
+                    child: SizedBox(
                       height: 50,
                       child: Row(
                         children: [
@@ -120,13 +119,12 @@ class _SettingsPageState extends State<SettingsPage> {
                     ),
                   ),
                   const SizedBox(height: 10),
-                  //feedback
                   InkWell(
                     onTap: () {
                       openWebview(
                           urlString: AppConstants.about, title: "About Us");
                     },
-                    child: Container(
+                    child: SizedBox(
                       height: 50,
                       child: Row(
                         children: [
@@ -149,12 +147,11 @@ class _SettingsPageState extends State<SettingsPage> {
                     ),
                   ),
                   const SizedBox(height: 10),
-                  //Privacy policy
                   InkWell(
                     onTap: () {
                       // open url
                     },
-                    child: Container(
+                    child: SizedBox(
                       height: 50,
                       child: Row(
                         children: [
@@ -178,13 +175,12 @@ class _SettingsPageState extends State<SettingsPage> {
                     ),
                   ),
                   const SizedBox(height: 10),
-                  //Privacy policy
                   InkWell(
                     onTap: () {
                       Get.to(() => const SettingsViewPage(),
                           transition: Transition.cupertino);
                     },
-                    child: Container(
+                    child: SizedBox(
                       height: 50,
                       child: Row(
                         children: [
@@ -206,7 +202,7 @@ class _SettingsPageState extends State<SettingsPage> {
             const SizedBox(height: 30),
             //version text.
             Text(
-              "Version 1.0.0 @VisionCraft",
+              "@VisionCraft 2024",
               style: GoogleFonts.josefinSans(color: Colors.white54),
             ),
           ],
