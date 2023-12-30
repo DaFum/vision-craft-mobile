@@ -44,7 +44,7 @@ class _CreatePageState extends State<CreatePage> {
                     minHeight: 100,
                   ),
                   decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
+                    borderRadius: BorderRadius.circular(8),
                     border: Border.all(color: AppTheme.greenColor),
                   ),
                   child: Column(
@@ -77,6 +77,15 @@ class _CreatePageState extends State<CreatePage> {
                         ),
                       ),
                     ],
+                  ),
+                ),
+                Container(
+                  height: 50,
+                  width: double.infinity,
+                  margin: const EdgeInsets.all(8.0),
+                  decoration: BoxDecoration(
+                    color: const Color.fromARGB(193, 255, 255, 255),
+                    borderRadius: BorderRadius.circular(8),
                   ),
                 ),
               ],
