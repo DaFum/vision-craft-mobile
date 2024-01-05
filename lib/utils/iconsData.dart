@@ -9,4 +9,5 @@ class IconsData {
   static const bug = "assets/icons/bug.svg";
   static const about = "assets/icons/about.svg";
   static const back = "assets/icons/back.svg";
+  static const model = "assets/icons/model.svg";
 }
