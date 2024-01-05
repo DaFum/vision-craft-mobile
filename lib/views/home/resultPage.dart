@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../../theme/appTheme.dart';
+import '../../widgets/loader.dart';
 
 class ResultPage extends StatefulWidget {
   const ResultPage({super.key, required this.imageResult});
@@ -15,6 +16,7 @@ class ResultPage extends StatefulWidget {
 }
 
 class _ResultPageState extends State<ResultPage> {
+  CustomLoader customLoader = CustomLoader();
   Future saveImage() async {}
   @override
   Widget build(BuildContext context) {
