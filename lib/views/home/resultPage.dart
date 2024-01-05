@@ -3,6 +3,7 @@ import 'dart:typed_data';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:image_gallery_saver/image_gallery_saver.dart';
 
 import '../../theme/appTheme.dart';
 import '../../widgets/loader.dart';
@@ -17,7 +18,27 @@ class ResultPage extends StatefulWidget {
 
 class _ResultPageState extends State<ResultPage> {
   CustomLoader customLoader = CustomLoader();
-  Future saveImage() async {}
+  Future saveImage() async {
+    try {
+      await ImageGallerySaver.saveImage(widget.imageResult);
+      customLoader.hideLoader();
+      Get.snackbar(
+        "Success",
+        "Image downloaded successfully!",
+        backgroundColor: AppTheme.greenColor,
+        colorText: Colors.white,
+      );
+    } catch (e) {
+      customLoader.hideLoader();
+      Get.snackbar(
+        "Error",
+        e.toString(),
+        backgroundColor: AppTheme.mainColor,
+        colorText: Colors.white,
+      );
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -70,6 +91,7 @@ class _ResultPageState extends State<ResultPage> {
             const Spacer(),
             GestureDetector(
               onTap: () {
+                customLoader.showLoader(context);
                 saveImage();
               },
               child: Container(
