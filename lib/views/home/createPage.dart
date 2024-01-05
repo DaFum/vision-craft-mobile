@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:vision_craft_mobile/utils/iconsData.dart';
 
 import '../../theme/appTheme.dart';
 
@@ -71,8 +73,11 @@ class _CreatePageState extends State<CreatePage> {
     "timeless_v1.0",
     "toonyou_beta6",
   ];
+  String? selectedModel;
   TextEditingController promptController = TextEditingController();
   FocusNode myfocus = FocusNode();
+
+  Future createImage() async {}
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -138,13 +143,104 @@ class _CreatePageState extends State<CreatePage> {
                     ],
                   ),
                 ),
+                const SizedBox(height: 15),
+                Row(
+                  children: [
+                    const SizedBox(width: 8.0),
+                    Text(
+                      "Choose Model",
+                      style: GoogleFonts.lato(
+                        color: Colors.white,
+                      ),
+                    ),
+                  ],
+                ),
                 Container(
-                  height: 50,
+                  height: 60,
                   width: double.infinity,
                   margin: const EdgeInsets.all(8.0),
                   decoration: BoxDecoration(
                     color: const Color.fromARGB(193, 255, 255, 255),
                     borderRadius: BorderRadius.circular(8),
+                  ),
+                  child: Row(
+                    children: [
+                      const SizedBox(width: 5),
+                      SvgPicture.asset(
+                        IconsData.model,
+                        colorFilter: const ColorFilter.mode(
+                          AppTheme.pinkColor,
+                          BlendMode.srcIn,
+                        ),
+                      ),
+                      const SizedBox(width: 6),
+                      Expanded(
+                        child: DropdownButton(
+                          value: selectedModel,
+                          icon: const Icon(
+                            Icons.keyboard_arrow_down,
+                            color: AppTheme.pinkColor,
+                          ),
+                          hint: Text(
+                            "Order Method",
+                            style: GoogleFonts.lato(),
+                          ),
+                          borderRadius: BorderRadius.circular(15),
+                          underline: const SizedBox(),
+                          isExpanded: true,
+                          style: const TextStyle(
+                            fontWeight: FontWeight.w500,
+                            fontFamily: "SF",
+                            fontSize: 15,
+                            color: Colors.black,
+                          ),
+                          items: visionCraftModels.map((String items) {
+                            return DropdownMenuItem(
+                              value: items,
+                              child: Text(
+                                items,
+                                style: const TextStyle(
+                                  fontFamily: "SF",
+                                  fontSize: 14,
+                                ),
+                              ),
+                            );
+                          }).toList(),
+                          onChanged: (String? newValue) {
+                            setState(() {
+                              selectedModel = newValue!;
+                            });
+                          },
+                        ),
+                      ),
+                      const SizedBox(width: 5),
+                    ],
+                  ),
+                ),
+                const SizedBox(height: 15),
+                GestureDetector(
+                  onTap: () => createImage(),
+                  child: Container(
+                    height: 60,
+                    width: double.infinity,
+                    margin: const EdgeInsets.all(8.0),
+                    decoration: BoxDecoration(
+                      gradient: const LinearGradient(
+                        colors: [
+                          AppTheme.purpleColor,
+                          AppTheme.pinkColor,
+                        ],
+                      ),
+                      borderRadius: BorderRadius.circular(8),
+                    ),
+                    child: Center(
+                      child: Text(
+                        "Generate Image",
+                        style: GoogleFonts.lato(
+                          color: Colors.white,
+                        ),
+                      ),
+                    ),
                   ),
                 ),
               ],

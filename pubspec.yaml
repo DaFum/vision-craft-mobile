@@ -1,5 +1,5 @@
 name: vision_craft_mobile
-description: A new Flutter project.
+description: Official Vision Craft App
 publish_to: 'none'
 version: 0.1.0
 
@@ -10,7 +10,7 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_svg: ^2.0.9
-  flutter_vision_craft: ^1.0.1
+  flutter_vision_craft: ^1.1.0
   get: ^4.6.6
   google_fonts: ^6.1.0
   url_launcher: ^6.2.2
