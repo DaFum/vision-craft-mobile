@@ -3,12 +3,14 @@ import 'dart:typed_data';
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_vision_craft/flutter_vision_craft.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:vision_craft_mobile/utils/iconsData.dart';
 import 'package:vision_craft_mobile/widgets/loader.dart';
 
 import '../../theme/appTheme.dart';
+import 'resultPage.dart';
 
 class CreatePage extends StatefulWidget {
   const CreatePage({super.key});
@@ -89,13 +91,43 @@ class _CreatePageState extends State<CreatePage> {
 
   Future createImage() async {
     String prompt = promptController.text.trim().toString();
-    final result = await visionCraft.generateImage(
-      apiKey: apiKey,
-      prompt: prompt,
-      enableBadWords: false,
-    );
-    imageResult = result;
-    setState(() {});
+    if (promptController.text.isEmpty) {
+      Get.snackbar(
+        "Error",
+        "Enter prompt to continue!",
+        backgroundColor: AppTheme.mainColor,
+        colorText: Colors.white,
+      );
+    } else if (selectedModel == null) {
+      Get.snackbar(
+        "Error",
+        "Select model to continue!",
+        backgroundColor: AppTheme.mainColor,
+        colorText: Colors.white,
+      );
+    } else {
+      customLoader.showLoader(context);
+      final result = await visionCraft.generateImage(
+        apiKey: apiKey,
+        prompt: prompt,
+        enableBadWords: false,
+        model: selectedModel,
+      );
+      imageResult = result;
+      customLoader.hideLoader();
+      Get.to(
+          () => ResultPage(
+                imageResult: imageResult!,
+              ),
+          transition: Transition.cupertino);
+    }
+  }
+
+  @override
+  void dispose() {
+    promptController.dispose();
+    myfocus.dispose();
+    super.dispose();
   }
 
   @override
@@ -145,6 +177,9 @@ class _CreatePageState extends State<CreatePage> {
                             maxLines: null,
                             expands: true,
                             maxLength: 500,
+                            style: GoogleFonts.lato(
+                              color: Colors.white,
+                            ),
                             focusNode: myfocus,
                             controller: promptController,
                             keyboardType: TextInputType.text,
@@ -202,7 +237,7 @@ class _CreatePageState extends State<CreatePage> {
                             color: AppTheme.pinkColor,
                           ),
                           hint: Text(
-                            "Order Method",
+                            "Select Model",
                             style: GoogleFonts.lato(),
                           ),
                           borderRadius: BorderRadius.circular(15),
@@ -240,7 +275,6 @@ class _CreatePageState extends State<CreatePage> {
                 const SizedBox(height: 15),
                 GestureDetector(
                   onTap: () {
-                    customLoader.showLoader(context);
                     createImage();
                   },
                   child: Container(
