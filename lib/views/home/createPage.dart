@@ -1,4 +1,7 @@
+import 'dart:typed_data';
+
 import 'package:flutter/material.dart';
+import 'package:flutter_vision_craft/flutter_vision_craft.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:vision_craft_mobile/utils/iconsData.dart';
@@ -73,11 +76,26 @@ class _CreatePageState extends State<CreatePage> {
     "timeless_v1.0",
     "toonyou_beta6",
   ];
+  final VisionCraft visionCraft = VisionCraft();
+  Uint8List? imageResult;
+  bool? isLoading;
+
   String? selectedModel;
   TextEditingController promptController = TextEditingController();
   FocusNode myfocus = FocusNode();
 
-  Future createImage() async {}
+  Future createImage() async {
+    String prompt = promptController.text.trim().toString();
+    final result = await visionCraft.generateImage(
+      apiKey: apiKey,
+      prompt: prompt,
+      enableBadWords: false,
+    );
+    imageResult = result;
+    isLoading = false;
+    setState(() {});
+  }
+
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
