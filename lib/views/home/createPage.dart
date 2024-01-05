@@ -1,10 +1,12 @@
 import 'dart:typed_data';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_vision_craft/flutter_vision_craft.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:vision_craft_mobile/utils/iconsData.dart';
+import 'package:vision_craft_mobile/widgets/loader.dart';
 
 import '../../theme/appTheme.dart';
 
@@ -78,11 +80,12 @@ class _CreatePageState extends State<CreatePage> {
   ];
   final VisionCraft visionCraft = VisionCraft();
   Uint8List? imageResult;
-  bool? isLoading;
 
   String? selectedModel;
   TextEditingController promptController = TextEditingController();
   FocusNode myfocus = FocusNode();
+  String apiKey = dotenv.get('APIKEY');
+  CustomLoader customLoader = CustomLoader();
 
   Future createImage() async {
     String prompt = promptController.text.trim().toString();
@@ -92,7 +95,6 @@ class _CreatePageState extends State<CreatePage> {
       enableBadWords: false,
     );
     imageResult = result;
-    isLoading = false;
     setState(() {});
   }
 
@@ -237,7 +239,10 @@ class _CreatePageState extends State<CreatePage> {
                 ),
                 const SizedBox(height: 15),
                 GestureDetector(
-                  onTap: () => createImage(),
+                  onTap: () {
+                    customLoader.showLoader(context);
+                    createImage();
+                  },
                   child: Container(
                     height: 60,
                     width: double.infinity,
