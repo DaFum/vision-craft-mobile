@@ -1,7 +1,7 @@
 name: vision_craft_mobile
 description: Official Vision Craft App
 publish_to: 'none'
-version: 0.1.0
+version: 1.1.0
 
 environment:
   sdk: '>=3.1.5 <4.0.0'
@@ -11,7 +11,7 @@ dependencies:
     sdk: flutter
   flutter_dotenv: ^5.1.0
   flutter_svg: ^2.0.9
-  flutter_vision_craft: ^1.1.0
+  flutter_vision_craft: ^1.2.0
   get: ^4.6.6
   google_fonts: ^6.1.0
   image_gallery_saver: ^2.0.3
