@@ -151,10 +151,10 @@ packages:
     dependency: "direct main"
     description:
       name: flutter_vision_craft
-      sha256: "6330aa0323b36f1ee5ccd6296b225ada44d98b2cd7df715c7c1eae99437bab5f"
+      sha256: "82e421f0e548c0f713879d6d3e4e83b30ee1aa17b595e8ae02c9555c9c7d094e"
       url: "https://pub.dev"
     source: hosted
-    version: "1.2.0"
+    version: "1.2.1"
   flutter_web_plugins:
     dependency: transitive
     description: flutter
