@@ -4,9 +4,7 @@ The VisionCraft Mobile App allows you to harness the power of the VisionCraft AP
 
 ## Getting Started
 
-1. **Download the App:** Get the VisionCraft Mobile App from [Releases](#) or [Google Play](#).
-
-2. **Obtain API Key:**
+1. **Obtain API Key:**
     - Subscribe to the [VisionCraft Telegram channel](https://t.me/visioncraft_channel).
     - Send the `/key` command to the [VisionCraft bot](https://t.me/VisionCraft_bot).
     - Save and secure your API key.
